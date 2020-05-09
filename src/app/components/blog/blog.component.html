@@ -1,0 +1,46 @@
+<div class="tabs-content" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="wrapper">
+        <div class="col-md-4">
+          <div class="section-heading">
+            <h4>Our Blog Posts</h4>
+            <div class="line-dec"></div>
+            <p>
+              Nam vulputate elementum nulla, sit amet congue ipsum malesuada
+              pretium. Vivamus vel gravida quam.
+            </p>
+            <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+              <li *ngFor="let post of posts; index as i">
+                <a
+                  id="a{{ i + 1 }}"
+                  href="#tab{{ i + 1 }}"
+                  (click)="activatediv(i + 1)"
+                  >{{ post.title }}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <section id="first-tab-group" class="tabgroup">
+            <div *ngFor="let post of posts; index as i">
+              <div id="tab{{ i + 1 }}" [class.active]="!i" [class.hide]="i">
+                <img src="assets/img/blog_item_01.jpg" alt="" />
+                <div class="text-content">
+                  <h4>{{ post.title }}</h4>
+                  <span
+                    ><a href="#">{{ post.type }}</a> /
+                    <a href="#">{{ post.author }}</a> /
+                    <a href="#">{{ post.postdate }}</a></span
+                  >
+                  <p>{{ post.detail }}</p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
